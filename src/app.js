@@ -5,7 +5,7 @@ import 'normalize.css/normalize.css'; //use normalize to do a css-reset. Makes b
 import '../public/styles.css'; //inject css styles into the dom using webpack
 
 const jsx = (
-    <Dashboard />
+    <Dashboard className="dashboard" />
 );
 
 ReactDOM.render(jsx, document.querySelector('.app'));

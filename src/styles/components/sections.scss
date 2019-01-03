@@ -1,14 +1,36 @@
+.app {
+    margin-top: 4rem;
+
+    &__icon {
+        margin-right: .7rem;
+        font-size: 5rem;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 5rem;
+    }
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-a;
+    -webkit-text-stroke: 2px black;
+}
+
 .resortContainer {
-    background-color: rgb(42, 86, 148);
+    background-color: $color-a;
     padding: 2.5rem;
     height: 100%;
-    flex: 1;
+    flex: 1.3;
 
 
     &__scroller {
         margin: 0 auto;
         height: 100%;
-        width: 400px;
+        width: 100%;
         overflow: auto;
 
         ul {
@@ -26,7 +48,15 @@
             font-weight: bold;
             font-size: 2rem;
             color: #000;
+
+            &:hover {
+                color: $color-c;
+            }
         }
+    }
+
+    .resort-icon {
+        color: $color-c;
     }
     
 
@@ -34,7 +64,7 @@
 
 .statusContainer {
     padding: 2.5rem 3rem;
-    background-color: #eee;
+    background-color: rgb(243, 243, 243);
     width: 700px;
     height: 100%;
     flex: 2;
@@ -49,7 +79,7 @@
     display: flex;
 }
 
-.title {
+.footer {
     text-align: center;
-    text-transform: uppercase;
+    font-size: 1rem;
 }
