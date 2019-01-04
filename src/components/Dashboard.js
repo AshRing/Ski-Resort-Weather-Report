@@ -4,7 +4,7 @@ import $ from 'jquery';
 import WeatherReport from './WeatherReport';
 
 const API_KEY = '012d71c7f728d35e022660cde356347c';
-
+const proxyUrl = 'https://pacific-cove-84594.herokuapp.com/';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -13,13 +13,16 @@ class Dashboard extends React.Component {
         this.state = {
             resorts: [],
             name: '',
-            elevation: undefined,
-            data: [{time: 0}]
+
+            data: [{time: 0}],
+            isFetching: false
         }
     }
 
     componentWillMount() {
-        return fetch('https://skimap.org/Regions/view/281.xml')
+        const targetUrl = 'https://skimap.org/Regions/view/281.xml';
+
+        return fetch(proxyUrl + targetUrl)
         .then(res => res.text())
         .then(xmlString => $.parseXML(xmlString))
         .then(data => {
@@ -35,27 +38,31 @@ class Dashboard extends React.Component {
             }
 
             this.setState({resorts});
-        });
+        })
+        .catch(err => console.log(err));
     }
 
     handleClick = (id) => {
-        return fetch(`https://skimap.org/SkiAreas/view/${id}.json`)
+        const targetUrl = `https://skimap.org/SkiAreas/view/${id}.json`;
+        return fetch(proxyUrl + targetUrl)
         .then(response => response.json())
         .then(data => {
             this.setState({name: data.name});
             this.fetchWeatherData(data.latitude, data.longitude);
+            console.log(data);
         })
         .catch(err => console.log(err));
         
     }
 
     fetchWeatherData(lat, long) {
-        return fetch(`https://api.darksky.net/forecast/${API_KEY}/${lat},${long}?exclude=[minutely]`)
+        const targetUrl = `https://api.darksky.net/forecast/${API_KEY}/${lat},${long}?exclude=[minutely]`;
+        this.setState({isFetching: true});
+        return fetch(proxyUrl + targetUrl)
         .then(response => response.json())
         .then(data => {
-            this.setState({data});
-            console.log(this.state.data);
-            // const d = new Date(this.state.data.data[6].time);
+            this.setState({isFetching: false, data});
+            console.log(data);
         })
         .catch(err => console.log(err));
     }
@@ -82,7 +89,11 @@ class Dashboard extends React.Component {
                             </ul>
                         </div>   
                     </div>
-                    <div className="statusContainer"><WeatherReport data={this.state.data} name={this.state.name} elevation={this.state.elevation} /></div>
+                    <div className="statusContainer">
+                        {
+                            this.state.isFetching ? null : <WeatherReport data={this.state.data} name={this.state.name} elevation={this.state.elevation} />
+                        }
+                    </div>
                 </div>
             </div>
         );

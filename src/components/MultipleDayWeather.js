@@ -4,6 +4,8 @@ import moment from 'moment';
 const MultipleDayWeather = (props) => {
     if(props.data) {
         const days = props.data.data.splice(1, 3);
+        console.log(days);
+
         return (
             <div className="forecast">
                 <hr></hr>
@@ -42,7 +44,7 @@ const MultipleDayWeather = (props) => {
 }
 
 const convertTime = (timeInUNIX) => {
-    return new moment.unix(timeInUNIX).format('MMM D');
+    return new moment.unix(timeInUNIX).format('ddd MMM D');
 }
 
 

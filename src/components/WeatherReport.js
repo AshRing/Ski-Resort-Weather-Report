@@ -8,7 +8,7 @@ const WeatherReport = (props) => {
             <div className="weatherContainer">
                 <h1>{props.name}</h1>
                 <div className="weather">
-                    <CurrentWeather data={props.data.currently} />
+                    <CurrentWeather data={props.data.currently} daily={props.data.daily} />
                     <MultipleDayWeather data={props.data.daily} />
                 </div>
             </div>

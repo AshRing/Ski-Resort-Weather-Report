@@ -19,6 +19,9 @@ h1 {
   font-size: 4rem;
   color: #145F84; }
 
+h2 {
+  font-size: 3rem; }
+
 button {
   cursor: pointer; }
   button:disabled {
@@ -90,7 +93,7 @@ button {
     color: #42B8C1; }
 
 .statusContainer {
-  padding: 2.5rem 3rem;
+  padding: 0 3rem 2.5rem;
   background-color: #f3f3f3;
   width: 700px;
   height: 100%;
@@ -127,25 +130,20 @@ button {
     top: .5rem;
     right: .5rem;
     font-size: 1rem; }
-  .weather__tempContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0D9491; }
   .weather__temp {
-    font-size: 5rem;
-    margin-right: 1rem; }
+    font-size: 5rem; }
   .weather__table {
     width: 100%;
     margin: 0 auto; }
     .weather__table th {
       padding: 0 1rem;
       text-align: right;
-      width: 55%; }
+      width: 50%;
+      font-weight: 500; }
     .weather__table tr {
       padding: 0 1rem;
       text-align: left;
-      width: 45%; }
+      width: 50%; }
 
 .forecast__dayContainer {
   margin-top: 1rem;
