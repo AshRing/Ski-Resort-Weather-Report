@@ -5,10 +5,10 @@ const CurrentWeather = (props) => {
     if(props.data) {
         const time = new moment.unix(props.data.time);
         return (
-            <div className="weather">
-                <h2 className="weather__category-title">Current Weather</h2>
+            <div>
+                <h2>Current Weather</h2>
                     {/* <strong>{time.format('MMM Do, YYYY')}</strong>  */}
-                <p>Last updated {time.format('h:mma')}</p>
+                <p className="weather__lastUpdated">Last updated on {time.format('M/D/YY @ h:mma')}</p>
                 <div>
                     <div className="weather__tempContainer">
                         <strong className="weather__temp">{Math.round(props.data.temperature)}&deg;</strong><h2>  {props.data.summary}</h2>

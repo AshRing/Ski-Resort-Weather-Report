@@ -11,18 +11,27 @@
 }
 
 .weather {
+    position: relative;
     flex: 1;
     background-color: rgb(235, 235, 235);
     height: 100%;
     padding: 1.5rem 2rem;
     border-radius: 5px;
+    overflow: auto;
+
+    hr {
+        margin: 1rem 0;
+    }
 
     strong {
         color: $color-b;
     }
 
-    &__category-title {
-        color: $color-b;
+    &__lastUpdated {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        font-size: 1rem;
     }
 
     &__tempContainer {
@@ -52,5 +61,43 @@
             text-align: left;
             width: 45%;
         }
+    }
+
+    
+}
+
+.forecast {
+
+    &__dayContainer {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__day {
+        border: 1px solid $color-b;
+        border-radius: 5px;
+        width: 30%;
+
+        h2 {
+            border-bottom: 1px solid $color-b;
+            background: $color-b;
+            color: #fff;
+        }
+
+        &__body {
+            padding: .5rem;
+        }
+        
+    }
+
+    .tempContainer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .tempFlex {
+        display: flex;
+        flex-direction: column;
     }
 }
