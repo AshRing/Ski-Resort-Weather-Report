@@ -1,6 +1,7 @@
 // Colors
-
-
+$color-a: #145F84;
+$color-b: #0D9491;
+$color-c: #42B8C1;
 
 // Spacing
 $s-size: 1.2rem;
@@ -8,4 +9,19 @@ $m-size: 1.6rem;
 $l-size: 3.2rem;
 $xl-size: 4.8rem;
 
-$desktop-breakpoint: 45rem;
+// Media queries
+//1 em = 16px
+@mixin respond($breakpoint) {
+    @if $breakpoint == xsmall {
+        @media screen and (min-width: 37.5em) { @content };     //600/16
+    }
+    @if $breakpoint == small {
+        @media screen and (min-width: 56.25em) { @content };      //900/16
+    }
+    @if $breakpoint == medium {
+        @media screen and (min-width: 75em) { @content };     //1200/16
+    }
+    @if $breakpoint == large {
+        @media screen and (min-width: 112.5em) { @content };     //1800/16
+    }
+}

@@ -21,7 +21,6 @@ class Dashboard extends React.Component {
 
     componentWillMount() {
         const targetUrl = 'https://skimap.org/Regions/view/281.xml';
-
         return fetch(proxyUrl + targetUrl)
         .then(res => res.text())
         .then(xmlString => $.parseXML(xmlString))
@@ -77,8 +76,9 @@ class Dashboard extends React.Component {
                 
                 <div className="container">
                     <div className="resortContainer">
-                        <div className="resortContainer__scroller">
-                            <ul>
+                        <a href="#" className="resortContainer__dropButton"><h2 >Pick a Resort <i className="fas fa-arrow-down"></i></h2></a>
+                        <div className="resortContainer__menu">
+                            <ul className="resortContainer__dropdown">
                             { 
                                 this.state.resorts.map((resort) => {
                                 return <Resort name={resort.name} key={resort.name} handleClick={(e) => {
