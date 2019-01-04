@@ -5,31 +5,54 @@ const CurrentWeather = (props) => {
     if(props.data) {
         const time = new moment.unix(props.data.time);
         return (
-        <div>
-            <h1>{props.name}</h1>
-            <h2>Current Weather</h2>
-            <strong>{time.format('MMM Do, YYYY')}</strong> 
-            <p>Last updated {time.format('h:mma')}</p>
-            <div>
-                <h2>{Math.round(props.data.temperature)}&deg; {props.data.summary}</h2>
-                <p>Humidity: {Math.round(props.data.humidity*100)}%</p>
-                {
-                    props.data.precipType ? (
-                        <div>
-                            <p>Precipitation Type: {props.data.precipType}</p>
-                            <p>Precipitation Intensity: {props.data.precipIntensity}</p>
-                        </div>
-                    ) : (
-                    <p>Chance of Precipitation: {Math.round(props.data.precipProbability*100)}% </p>
-                    )
-                }
-                <p>Wind Speed: {props.data.windSpeed}mph</p>
-                <p>Cloud Cover: {Math.round(props.data.cloudCover*100)}%</p>
+            <div className="weather">
+                <h2 className="weather__category-title">Current Weather</h2>
+                    {/* <strong>{time.format('MMM Do, YYYY')}</strong>  */}
+                <p>Last updated {time.format('h:mma')}</p>
+                <div>
+                    <div className="weather__tempContainer">
+                        <strong className="weather__temp">{Math.round(props.data.temperature)}&deg;</strong><h2>  {props.data.summary}</h2>
+                    </div>
+                    <table className="weather__table">
+                        <tbody>
+                            <tr>
+                                <th><strong>Humidity:</strong></th>
+                                <td>{Math.round(props.data.humidity*100)}%</td>
+                            </tr>
+                            {
+                                props.data.precipType ? (
+                                    <div>
+                                        <tr>
+                                            <th><strong>Precipitation Type:</strong></th>
+                                            <td>{props.data.precipType}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><strong>Precipitation Intensity:</strong></th>
+                                            <td>{props.data.precipIntensity}</td>
+                                        </tr>
+                                    </div>
+                                ) : (
+                                    <tr>
+                                        <th><strong>Chance of Precipitation:</strong></th>
+                                        <td>{Math.round(props.data.precipProbability*100)}%</td>
+                                    </tr>
+                                )
+                            }
+                            <tr>
+                                <th><strong>Wind Speed:</strong></th>
+                                <td>{props.data.windSpeed}mph</td>
+                            </tr>
+                            <tr>
+                                <th><strong>Cloud Cover:</strong></th>
+                                <td>{Math.round(props.data.cloudCover*100)}%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
         );
     }
-    return (<h1>Pick One</h1>);
+    return null;
 }
 
 const convertCtoF = (degrees) => {

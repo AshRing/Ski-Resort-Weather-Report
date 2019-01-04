@@ -1,4 +1,6 @@
-@import './base/settings';
-@import './base/base';
-@import './base/variables';
-@import './components/sections'; 
+@import 'base/variables';
+@import 'base/settings';
+@import 'base/base';
+
+@import 'components/sections'; 
+@import 'components/weather';

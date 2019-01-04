@@ -13,6 +13,7 @@ class Dashboard extends React.Component {
         this.state = {
             resorts: [],
             name: '',
+            elevation: undefined,
             data: [{time: 0}]
         }
     }
@@ -81,7 +82,7 @@ class Dashboard extends React.Component {
                             </ul>
                         </div>   
                     </div>
-                    <div className="statusContainer">{<WeatherReport data={this.state.data} name={this.state.name}/>}</div>
+                    <div className="statusContainer"><WeatherReport data={this.state.data} name={this.state.name} elevation={this.state.elevation} /></div>
                 </div>
             </div>
         );

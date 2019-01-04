@@ -1,0 +1,56 @@
+.weatherContainer {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.elevation {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.weather {
+    flex: 1;
+    background-color: rgb(235, 235, 235);
+    height: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+
+    strong {
+        color: $color-b;
+    }
+
+    &__category-title {
+        color: $color-b;
+    }
+
+    &__tempContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-b;
+    }
+
+    &__temp {
+        font-size: 5rem;
+        margin-right: 1rem;
+    }
+
+    &__table {
+        width: 100%;
+        margin: 0 auto;
+
+        th {
+            padding: 0 1rem;
+            text-align: right;
+            width: 55%;
+        }
+
+        tr {
+            padding: 0 1rem;
+            text-align: left;
+            width: 45%;
+        }
+    }
+}
