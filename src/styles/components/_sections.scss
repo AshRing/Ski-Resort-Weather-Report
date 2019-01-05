@@ -1,17 +1,35 @@
 //Contains app title + interface
 .app {
     margin-top: 4rem;
+    
 
     &__icon {
-        margin-right: .7rem;
-        font-size: 5rem;   
+        margin-right: .7rem; 
         color: $color-a;
+        font-size: 8vw;
+        
+
+        @include respond(small) {
+            font-size: 5rem;
+        }
+
+        @include respond(medium) {
+            font-size: 6rem;
+        }
     }
 
     &__title {
         text-align: center;
-        text-transform: uppercase;
-        font-size: 5rem;
+        font-size: 8vw;
+        
+
+        @include respond(small) {
+            font-size: 5rem;
+        }
+
+        @include respond(medium) {
+            font-size: 6rem;
+        }
     }
 }
 
@@ -22,7 +40,6 @@
     align-items: center;
     -webkit-text-stroke: 2px black;
     margin: 0 auto;
-    width: 50rem;
     line-height: 1;
 
     @include respond(small) {

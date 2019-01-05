@@ -20,7 +20,7 @@
     overflow: auto;
 
     hr {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
     }
 
     strong {
@@ -28,10 +28,13 @@
     }
 
     &__lastUpdated {
-        position: absolute;
-        top: .5rem;
-        right: .5rem;
         font-size: 1rem;
+
+        @include respond(small) {
+            position: absolute;
+            top: .5rem;
+            right: .5rem;            
+        }
     }
 
     &__temp {
@@ -62,15 +65,28 @@
 .forecast {
 
     &__dayContainer {
-        margin-top: 1rem;
+        margin-top: 2rem;
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
+
+        @include respond(xsmall) {
+            flex-direction: row;
+        }
     }
 
     &__day {
         border: 1px solid $color-b;
         border-radius: 5px;
-        width: 30%;
+        width: 100%;
+        
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+        @include respond(xsmall) {
+            width: 30%;
+        }
 
         h2 {
             border-bottom: 1px solid $color-b;

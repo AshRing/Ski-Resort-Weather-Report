@@ -72,7 +72,8 @@ class Dashboard extends React.Component {
             <div>
                 <div className="titleContainer">
                     <i className="far fa-snowflake app__icon"></i>
-                    <h1 className="app__title">Ski Resort Weather Report</h1>
+                    <h1 className="app__title">Ski Resort&nbsp;</h1>  
+                    <h1 className="app__title">Weather Report</h1>
                 </div>
                 
                 <div className="container">
