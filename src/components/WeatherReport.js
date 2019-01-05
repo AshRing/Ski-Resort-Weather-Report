@@ -14,7 +14,7 @@ const WeatherReport = (props) => {
             </div>
         );
     }
-    return (<h1><i className="fas fa-arrow-left"></i> Pick A Resort</h1>);
+    return (<h1><i className="statusContainer__arrow fas fa-arrow-left "></i> Please Pick A Resort</h1>);
 }
 
 export default WeatherReport;

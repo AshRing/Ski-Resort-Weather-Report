@@ -1,6 +1,7 @@
 import React from 'react';
 import Resort from './Resort';
 import $ from 'jquery';
+import Select from 'react-select';
 import WeatherReport from './WeatherReport';
 
 const API_KEY = '012d71c7f728d35e022660cde356347c';
@@ -13,7 +14,7 @@ class Dashboard extends React.Component {
         this.state = {
             resorts: [],
             name: '',
-
+            id: null,
             data: [{time: 0}],
             isFetching: false
         }
@@ -78,15 +79,32 @@ class Dashboard extends React.Component {
                     <div className="resortContainer">
                         <a href="#" className="resortContainer__dropButton"><h2 >Pick a Resort <i className="fas fa-arrow-down"></i></h2></a>
                         <div className="resortContainer__menu">
-                            <ul className="resortContainer__dropdown">
+                            <ul className="resortContainer__resortList">
                             { 
                                 this.state.resorts.map((resort) => {
-                                return <Resort name={resort.name} key={resort.name} handleClick={(e) => {
+                                return <Resort name={resort.name} key={resort.name} type={'ul'} handleClick={(e) => {
                                     e.preventDefault();
                                     this.handleClick(resort.id)}}/>
                                 })
                             }
                             </ul>
+                            <select 
+                                value={this.state.value} 
+                                onChange={(e) => {
+                                    e.preventDefault();
+                                    this.handleClick(e.target.value)}
+                                }
+                                className="resortContainer__resortDropdown"
+                            >
+                                <option value='resort'>Pick a Resort</option>
+                                {
+                                    this.state.resorts.map((resort) => {
+                                        return <Resort name={resort.name} id={resort.id} type={'select'} key={resort.name} />
+                                    })
+                                }
+                            </select>
+                            {/* <Select 
+                            value={selected} /> */}
                         </div>   
                     </div>
                     <div className="statusContainer">
