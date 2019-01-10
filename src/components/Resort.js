@@ -5,7 +5,7 @@ const Resort = (props) => {
         return (
             <li>
                 <a href="#" onClick={(e) => {
-                props.handleClick(e)
+                    props.handleClick(e)
                 }}><i className="far fa-snowflake resort-icon"></i> {props.name}</a>
             </li>
         )

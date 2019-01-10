@@ -7,7 +7,7 @@ import './styles/styles.scss'; //inject css styles into the dom using webpack
 
 const jsx = (
     <div>
-        <Dashboard className="dashboard" />
+        <Dashboard />
         <Footer />
     </div>
 );

@@ -4,7 +4,6 @@ import moment from 'moment';
 const MultipleDayWeather = (props) => {
     if(props.data) {
         const days = props.data.data.splice(1, 3);
-        console.log(days);
 
         return (
             <div className="forecast">

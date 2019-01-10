@@ -11,7 +11,7 @@ const CurrentWeather = (props) => {
                 <p className="weather__lastUpdated">Last updated on {time.format('M/D/YY @ h:mma')}</p>
                 <div>
                     <strong className="weather__temp">{Math.round(props.data.temperature)}&deg;</strong>
-                    <h3>{props.daily.data[0].summary}</h3>
+                    <h3 className="weather__summary">{props.daily.data[0].summary}</h3>
                     <table className="weather__table">
                         <tbody>
                             <tr>

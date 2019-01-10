@@ -1,6 +1,7 @@
 import React from 'react';
 import CurrentWeather from './CurrentWeather';
 import MultipleDayWeather from './MultipleDayWeather';
+import Landing from './Landing';
 
 const WeatherReport = (props) => {
     if(props.name !== '') {
@@ -14,7 +15,7 @@ const WeatherReport = (props) => {
             </div>
         );
     }
-    return (<h1><i className="statusContainer__arrow fas fa-arrow-left "></i> Please Pick A Resort</h1>);
+    return <Landing />;
 }
 
 export default WeatherReport;

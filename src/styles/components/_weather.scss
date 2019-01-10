@@ -38,22 +38,27 @@
     }
 
     &__temp {
-        font-size: 5rem;
+        font-size: 6rem;
+        margin: 1rem 0;
+    }
+
+    &__summary {
+        margin-bottom: 1rem;
     }
 
     &__table {
         width: 100%;
-        margin: 0 auto;
+        margin: 1.5rem auto 3rem;
 
         th {
-            padding: 0 1rem;
+            padding: .5rem 1rem;
             text-align: right;
             width: 50%;
             font-weight: 500;
         }
 
-        tr {
-            padding: 0 1rem;
+        td {
+            padding: .5rem 1rem;
             text-align: left;
             width: 50%;
         }
@@ -63,6 +68,7 @@
 }
 
 .forecast {
+    margin-top: 3rem;
 
     &__dayContainer {
         margin-top: 2rem;
@@ -82,6 +88,10 @@
         
         &:not(:last-child) {
             margin-bottom: 2rem;
+
+            @include respond(xsmall) {
+                margin: 0;
+            }
         }
 
         @include respond(xsmall) {
@@ -89,13 +99,33 @@
         }
 
         h2 {
+            padding: .5rem;
             border-bottom: 1px solid $color-b;
             background: $color-b;
             color: #fff;
+
+            @include respond(xsmall) {
+                min-height: 10rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }            
+            
+            @include respond(small) {
+                min-height: 0;
+            }
         }
 
         &__body {
-            padding: .5rem;
+            padding: 2.5rem;
+
+            @include respond(xsmall) {
+                padding: 2.5rem 1rem;
+            }
+
+            @include respond(small) {
+                padding: 2.5rem;
+            }
         }
         
     }
